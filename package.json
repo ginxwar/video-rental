@@ -1,0 +1,20 @@
+{
+  "name": "videorental",
+  "version": "0.0.1",
+  "description": "my uncle's rental store",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies" : {
+    "express"  :  "*",    
+    "mongoose":  "*",
+    "underscore": "*",
+    "async": "*",
+    "jade": "*",        
+    "mongodb": "*"
+  },
+  "repository": "",
+  "author": "kwu",
+  "license": "BSD"
+}

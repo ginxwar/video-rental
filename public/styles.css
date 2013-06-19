@@ -1,0 +1,13 @@
+#customers li.active {
+  background-color: #c67605;
+}
+
+.progress {
+  margin-bottom: 0;
+  margin-right: 5px;
+  margin-left: 0;
+}
+
+.table td.peach {
+  background-color: #fbdc88;
+}

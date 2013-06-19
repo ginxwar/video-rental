@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Video Rental</title>
+
+
+  <!-- vendors -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+  
+  <!-- jquery plugin-ins -->
+  <script src="handlebars-jquery.js"></script>
+  
+  
+  <!-- hbs templates -->
+  <script id="customersTemplate" type="text/x-handlebars-template">    
+    {{#each customers}}
+      <li id="customerid-{{id}}">
+        {{#unless invoices}}
+          <span class="label label-info">new</span>
+        {{/unless}}
+        <a href="#">{{lastname}}, {{firstname}}</a>
+      </li>      
+    {{/each}}    
+  </script>
+  
+  <script id="customerDetailTemplate" type="text/x-handlebars-template">
+    <div class="well well-small">
+      <span class="pull-right">      
+        <div>lifetime videos rented <span class="label">{{lifetimeRentals}}</span></div>
+        <div>customer since <abbr title="{{dateFormat dateCreated}}">{{dateSince dateCreated}}</abbr></div>
+      </span>    
+      <address>
+        <strong>{{lastname}}, {{firstname}}</strong><br/>
+        {{address1}}<br/>
+        {{#if address2}}{{address2}}<br/>{{/if}}
+        {{city}}, {{state}} {{zip}}<br/>
+        {{phone}}    
+      </address>      
+    </div>
+          
+    <div class="well well-small">
+      <p><strong>Rental History</strong></p>
+      
+      {{#if invoices}}
+        <div>
+          <i class="icon-repeat"></i> returned 
+          <i class="icon-plane"></i> still out         
+        </div>
+      {{else}}
+        <p>There is no history so this must be a new customer.  Lure them with popcorn.</p>
+      {{/if}}
+      
+      {{#each invoices}}
+        {{> invoice}}
+      {{/each}}
+    </div>
+  </script>
+  
+  <script id="invoiceTemplate" type="text/x-handlebars-template">
+     <div class="alert alert-info">          
+      <span class="pull-right">
+        SalesPerson: {{salesperson}}<br/>            
+      </span>
+      
+      {{dateFormat invoicedate}} <br/>          
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Movie</th>
+            <th>Price</th>                
+          </tr>
+        </thead>
+        <tbody>
+          {{#each discs}}
+            <tr class="warning">
+              <td>{{math @index 1}}</td>
+              <td>
+                <span class="label">{{days}} days</span>
+                {{{checkoutStatus}}}
+                {{discID.title}}
+                
+                
+                {{{discRentalStatus ../invoicedate}}}
+                
+              </td>
+              <td>${{price}}</td>                
+            </tr>                
+          {{/each}}              
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td class="pull-right">Total</td>
+            <td class="peach"><strong>${{total}}</strong></td>
+          </tr>
+        </tfoot>
+      </table>          
+      
+    </div>
+  </script>
+  
+  <script id="discsTemplate" type="text/x-handlebars-template">
+    <ul class="unstyled">
+      {{#each discs}}
+        <li>
+          <span class="progress span2">
+            <div class="bar bar-success" style="width: {{availabilityRatio available unavailable}}%;">{{available}}</div>            
+            <div class="bar bar-danger" style="width: {{availabilityRatio unavailable available}}%;">{{unavailable}}</div>
+          </span>
+          
+          <span class="label">{{math available unavailable}}</span>
+          
+          {{title}}
+          
+        </li>      
+      {{/each}}
+    </ul>
+  </script>
+  
+  <!-- hbs helpers -->
+  <script src="hbsHelpers.js"></script>
+      
+
+  <!-- styles -->
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">  
+  
+
+  <!-- APP: this is loaded last -->
+	<script src="app.js"></script>
+  
+</head>
+<body>
+
+	
+	<div class="tabbable">
+	  <ul class="nav nav-tabs">
+	    <li class="active"><a href="#tab1" data-toggle="tab">Customers</a></li>
+	    <li><a href="#tab2" data-toggle="tab">Inventory</a></li>
+      <li><a href="#tab3" data-toggle="tab">Statistics</a></li>
+	  </ul>
+    
+    <!-- Customers -->
+	  <div class="tab-content">
+	    <div class="tab-pane active" id="tab1">
+        
+        
+        
+        
+
+        
+
+        <!--
+				<form>				  
+				    <label>Label name</label>
+				    <input type="text" placeholder="First Name">
+				    <input type="text" placeholder="Last Name"><br/>
+				    <input type="text" placeholder="Address Line 1"><br/>
+				    <input type="text" placeholder="Address Line 2"><br/>
+				    <input type="text" placeholder="City">
+				    <input type="text" placeholder="State">
+				    <input type="text" placeholder="Zip"><br/>
+				    <input type="text" placeholder="Phone"><br/>				    
+				    <button type="submit" class="btn">Add new Customer</button>				  
+				</form>
+        -->
+
+        <div class="span3">
+          <!--
+          <button id="ascending">asc</button>
+          <button id="descending">desc</button>
+           -->
+          
+          <div >
+            <ul id="customers" class="unstyled">
+            </ul>
+          </div>
+        </div>
+        
+        <div class="span8" id="customerDetails"></div>
+
+
+
+	    </div>
+      
+      <!-- Inventory -->
+	    <div class="tab-pane" id="tab2">
+        
+	      <div class="span4">
+          <p>Sort by:
+            <a href="#" id="discSortByName">Name</a> |
+            <a href="#" id="discSortByAvailability">Availability</a> |
+            <a href="#" id="discSortByUnavailability">Unavailability</a> |
+            <a href="#" id="discSortByQuantity">Quantity</a>
+          </p>
+          <div id="discs"></div>
+        </div>
+        
+	    </div>
+      
+      <!-- Statistics -->
+      <div class="tab-pane" id="tab3">
+        <h4>statistics</h4>
+        
+        There are ? customers
+        There are ? movies, ? discs
+      </div>
+      
+	  </div>
+	</div>
+
+
+
+
+	
+</body>
+</html>

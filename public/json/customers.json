@@ -1,0 +1,300 @@
+[
+    {
+        "id": 1,
+        "firstname": "Bart",
+        "lastname": "Simpson",
+        "address1": "1234 Cherry Lane",
+        "address2": "Apt 33",
+        "city": "Santa Barbara",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "805-123-4567",
+        "dateCreated": "2009-09-12T22:38:54 -07:00",
+        "invoices": [
+            {
+                "invoicedate": "2009-09-12T23:00:00 -07:00",
+                "total": "8.98",
+                "salesperson": "Sally",
+                "discs": [
+                    {
+                        "discID": 1,
+                        "days": 2,
+                        "price": 4.49,
+                        "actualDateReturned": "2009-10-18T22:38:54 -07:00"
+                    },
+                    {
+                        "discID": 8,
+                        "days": 2,
+                        "price": 4.49,
+                        "actualDateReturned": "2009-10-18T22:38:54 -07:00"
+                    }
+                ]
+            },
+            {
+                "invoicedate": "2013-06-14T23:14:34 -07:00",
+                "total": "3.98",
+                "salesperson": "Mike",
+                "discs": [
+                    {
+                        "discID": 1,
+                        "days": 2,
+                        "price": 1.99
+                    },
+                    {
+                        "discID": 8,
+                        "days": 2,
+                        "price": 1.99
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "firstname": "Harry",
+        "lastname": "Potter",
+        "address1": "24 Apteros Road",
+        "address2": "Apt 9",
+        "city": "Santa Barbara",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "805-555-7894",
+        "dateCreated": "2010-03-05T12:24:22 -07:00",
+        "invoices": [
+            {
+                "invoicedate": "2010-03-05T12:27:13 -07:00",
+                "total": "103.55",
+                "salesperson": "Jackie",
+                "discs": [
+                    {
+                        "discID": 7,
+                        "days": 5,
+                        "actualDateReturned": "2010-03-06T22:38:54 -07:00"
+                    },
+                    {
+                        "discID": 6,
+                        "days": 5,
+                        "actualDateReturned": "2010-05-06T22:38:54 -07:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "firstname": "Darth",
+        "lastname": "Vader",
+        "address1": "11 Park Ave",
+        "address2": "",
+        "city": "Santa Barbara",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "805-111-2222",
+        "dateCreated": "2013-06-05T13:15:00 -07:00",
+        "invoices": []
+    },
+    {
+        "id": 4,
+        "firstname": "Kimberly",
+        "lastname": "Stanley",
+        "address1": "13544 Tudor City Place",
+        "city": "Baltimore",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "820-568-35729",
+        "dateCreated": "2008-08-24T09:29:12 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 5,
+        "firstname": "Zoe",
+        "lastname": "Wayne",
+        "address1": "20083 Wooster Street",
+        "city": "Maryland",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "829-587-32604",
+        "dateCreated": "2011-01-27T10:03:50 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 6,
+        "firstname": "Amelia",
+        "lastname": "Crossman",
+        "address1": "30448 Walker Street",
+        "city": "ElMonte",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "844-571-22646",
+        "dateCreated": "2004-12-01T07:40:46 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 7,
+        "firstname": "Amelia",
+        "lastname": "Nathan",
+        "address1": "12592 Madison Avenue",
+        "city": "FortCollins",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "860-584-33363",
+        "dateCreated": "2006-01-23T05:23:05 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 8,
+        "firstname": "Zoe",
+        "lastname": "Oswald",
+        "address1": "26196 Tudor City Place",
+        "city": "Gresham",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "818-565-25102",
+        "dateCreated": "1991-10-02T16:10:42 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 9,
+        "firstname": "Gabrielle",
+        "lastname": "Young",
+        "address1": "31659 Mercer Street",
+        "city": "Alexandria",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "866-417-27745",
+        "dateCreated": "1989-02-24T13:29:11 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 10,
+        "firstname": "Lillian",
+        "lastname": "Gate",
+        "address1": "31842  nr 43rd Street",
+        "city": "Erie",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "806-482-39967",
+        "dateCreated": "1999-03-10T02:06:10 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 11,
+        "firstname": "Alexa",
+        "lastname": "Wayne",
+        "address1": "28799 Walker Street",
+        "city": "Cleveland",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "813-511-20001",
+        "dateCreated": "1991-05-02T02:07:24 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 12,
+        "firstname": "Molly",
+        "lastname": "Hardman",
+        "address1": "13438 Tudor City Place",
+        "city": "Bridgeport",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "870-580-35850",
+        "dateCreated": "1990-08-04T23:58:11 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 13,
+        "firstname": "Vanessa",
+        "lastname": "Owen",
+        "address1": "17349 Kenmare Streets",
+        "city": "Berkeley",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "836-407-27221",
+        "dateCreated": "2011-12-20T16:14:12 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 14,
+        "firstname": "Makayla",
+        "lastname": "Michaelson",
+        "address1": "38386 Stanton Streets",
+        "city": "Clearwater",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "840-575-25747",
+        "dateCreated": "2001-05-14T21:55:01 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 15,
+        "firstname": "Addison",
+        "lastname": "Wayne",
+        "address1": "12684 Greene Street",
+        "city": "Fayetteville",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "804-441-20213",
+        "dateCreated": "1994-08-03T15:33:38 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 16,
+        "firstname": "Alyssa",
+        "lastname": "Milton",
+        "address1": "18244 Thompson Street",
+        "city": "Cary",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "803-564-26535",
+        "dateCreated": "1988-05-24T19:30:11 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 17,
+        "firstname": "Layla",
+        "lastname": "Hawkins",
+        "address1": "13497 Thompson Street",
+        "city": "Eugene",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "887-467-38007",
+        "dateCreated": "2012-03-19T04:24:39 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 18,
+        "firstname": "Evelyn",
+        "lastname": "Stanley",
+        "address1": "18309 Rivington Streets",
+        "city": "Anchorage",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "884-513-21815",
+        "dateCreated": "2011-01-14T14:15:13 +08:00",
+        "invoices": []
+    },
+    {
+        "id": 19,
+        "firstname": "Claire",
+        "lastname": "Gustman",
+        "address1": "18238 Greene Street",
+        "city": "FortLauderdale",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "836-523-21693",
+        "dateCreated": "2001-06-16T05:38:43 +07:00",
+        "invoices": []
+    },
+    {
+        "id": 20,
+        "firstname": "Alexis",
+        "lastname": "Turner",
+        "address1": "14552 Kenmare Streets",
+        "city": "Augusta",
+        "state": "CA",
+        "zip": "90000",
+        "phone": "807-470-36337",
+        "dateCreated": "1995-01-12T13:55:06 +08:00",
+        "invoices": []
+    }
+]
