@@ -4,8 +4,7 @@
         "title": "Iron Man",
         "genre": [
             "action"
-        ],
-        "expectedReturn": "2013-06-16T23:14:34 -07:00"
+        ]
     },
     {
         "id": 2,
@@ -246,7 +245,8 @@
         "genre": [
             "biography",
             "history"
-        ]
+        ],
+        "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 33,
@@ -310,7 +310,8 @@
         "genre": [
             "crime",
             "thriller"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 41,

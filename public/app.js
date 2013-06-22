@@ -10,7 +10,7 @@ var JSONService = {
   getCustomers: function() {
     return $.getJSON('/json/customers.json', function(data){        
       console.log('customers.json data received');
-      console.log(data);                    
+      //console.log(data);                    
       JSONData.customers = _(data).sortBy(function(customer){
         return customer.lastname;
       });
@@ -21,7 +21,7 @@ var JSONService = {
   getDiscs: function() {
     return $.getJSON('/json/discs.json', function(data) {
       console.log('discs data received');
-      console.log(data);      
+      //console.log(data);      
       JSONData.discs = data;
       
       var discsByTitle = _(jQuery.extend(true, {}, JSONData.discs)).groupBy(function(disc){

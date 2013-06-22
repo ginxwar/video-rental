@@ -13,7 +13,6 @@
         "invoices": [
             {
                 "invoicedate": "2009-09-12T23:00:00 -07:00",
-                "total": "8.98",
                 "lateFeeTotal": null,
                 "salesperson": "Sally",
                 "discs": [
@@ -34,7 +33,6 @@
             },
             {
                 "invoicedate": "2013-06-14T23:14:34 -07:00",
-                "total": "3.98",
                 "salesperson": "Mike",
                 "discs": [
                     {
@@ -66,7 +64,6 @@
         "invoices": [
             {
                 "invoicedate": "2010-03-05T12:27:13 -07:00",
-                "total": "103.55",
                 "salesperson": "Jackie",
                 "discs": [
                     {
@@ -96,7 +93,20 @@
         "zip": "90000",
         "phone": "805-111-2222",
         "dateCreated": "2013-06-05T13:15:00 -07:00",
-        "invoices": []
+      "invoices": [{
+        "invoicedate": "2013-06-06T12:27:13 -07:00",
+        "salesperson": "Jackie",
+        "discs": [{
+          "discID": 32,
+          "days": 2,
+          "price": 1.99
+        },{
+          "discID": 40,
+          "days": 2,
+          "price": 1.99
+        }]
+      
+      }]
     },
     {
         "id": 4,
