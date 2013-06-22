@@ -14,13 +14,15 @@
             {
                 "invoicedate": "2009-09-12T23:00:00 -07:00",
                 "total": "8.98",
+                "lateFeeTotal": null,
                 "salesperson": "Sally",
                 "discs": [
                     {
                         "discID": 1,
                         "days": 2,
                         "price": 4.49,
-                        "actualDateReturned": "2009-10-18T22:38:54 -07:00"
+                        "actualDateReturned": "2009-10-18T22:38:54 -07:00",
+                        "lateFeeAssessed": 6.57
                     },
                     {
                         "discID": 8,
@@ -38,7 +40,8 @@
                     {
                         "discID": 1,
                         "days": 2,
-                        "price": 1.99
+                        "price": 1.99,
+                        "actualDateReturned": "2013-06-15T22:38:54 -07:00"
                     },
                     {
                         "discID": 8,
@@ -69,11 +72,13 @@
                     {
                         "discID": 7,
                         "days": 5,
+                        "price": 3.99,
                         "actualDateReturned": "2010-03-06T22:38:54 -07:00"
                     },
                     {
                         "discID": 6,
                         "days": 5,
+                        "price": 3.99,
                         "actualDateReturned": "2010-05-06T22:38:54 -07:00"
                     }
                 ]

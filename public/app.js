@@ -100,14 +100,6 @@ var findCustomer = function(customerID) {
 }
 
 
-
-//var tt = moment().format();
-//console.log(tt);
-//console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
-//console.log(moment("2009-09-12T23:00:00 -07:00").fromNow());
-
-
-
       
 
 ////begin ready//////////////////

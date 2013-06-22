@@ -64,7 +64,7 @@
   <script id="invoiceTemplate" type="text/x-handlebars-template">
      <div class="alert alert-info">          
       <span class="pull-right">
-        SalesPerson: {{salesperson}}<br/>            
+        SalesPerson: <strong>{{salesperson}}</strong><br/>            
       </span>
       
       {{dateFormat invoicedate}} <br/>          
@@ -74,6 +74,7 @@
           <tr>
             <th>#</th>
             <th>Movie</th>
+            <th>Status</th>
             <th>Price</th>                
           </tr>
         </thead>
@@ -85,20 +86,26 @@
                 <span class="label">{{days}} days</span>
                 {{{checkoutStatus}}}
                 {{discID.title}}
-                
-                
-                {{{discRentalStatus ../invoicedate}}}
-                
               </td>
+              <td>{{{discRentalStatus ../invoicedate}}}</td>
               <td>${{price}}</td>                
-            </tr>                
+            </tr>
+            {{#if lateFeeAssessed}}
+              <tr>
+                <td></td>
+                <td></td>
+                <td>late fee:</td>
+                <td>${{lateFeeAssessed}}</td>
+              </tr>
+            {{/if}}
           {{/each}}              
         </tbody>
         <tfoot>
           <tr>
             <td></td>
+            <td></td>
             <td class="pull-right">Total</td>
-            <td class="peach"><strong>${{total}}</strong></td>
+            <td class="peach"><strong>${{grandTotal}}</strong></td>
           </tr>
         </tfoot>
       </table>          
@@ -199,6 +206,7 @@
             <a href="#" id="discSortByAvailability">Availability</a> |
             <a href="#" id="discSortByUnavailability">Unavailability</a> |
             <a href="#" id="discSortByQuantity">Quantity</a>
+        
           </p>
           <div id="discs"></div>
         </div>

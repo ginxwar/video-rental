@@ -56,12 +56,21 @@ Handlebars.registerHelper("discRentalStatus", function(invoiceDate) {
     var text = "<span class='label label-info'>due today</span>"
   } else if (daysLapsed > 2) {
     var text = "<span class='label label-important'>overdue " + daysLapsed + "d</span>";
-  } else if (daysLapsed > 0 && daysLapsed <= 2) {
+  } else if (daysLapsed >= 0 && daysLapsed <= 2) {
     var text = "";
-  } else {
+  } else {  //strange negative value? (possible?)
     var text = "<span class='label label-important'>Fatal Error</span>";
   }  
   return text;
+});
+Handlebars.registerHelper("grandTotal", function(options){
+  //console.log(this);
+  var allFees =  _(this.discs).reduce(function( memo, val, key ){
+    return (memo || 0) + (val.price || 0) + (val.lateFeeAssessed || 0);
+    //console.log(val.price);
+    //console.log(val.lateFeeAssess);
+  }, 0);
+  return allFees;  
 });
 
 
