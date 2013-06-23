@@ -7,12 +7,12 @@ This is a prototype video rental store web application written entirely in JavaS
 Technology stack
 ----------------
 
-node + express
-jquery
-handlebars
-bootstrap
-underscore
-(mongodb)*
+* node + express
+* jquery
+* handlebars
+* bootstrap
+* underscore
+* (mongodb)*
 
 
 Time constraints limit this prototype to only read operations against two static JSON files.  But in a real development, the interactions (writes and updates) between the client application and the backend would be facilitated through additional HTTP endpoints (expressJS web service) that would connect to a mongo database.
