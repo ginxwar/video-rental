@@ -1,5 +1,5 @@
-#customers li.active {
-  background-color: #c67605;
+#customers li a.active {
+  background-color: #f8f572;
 }
 
 .progress {
@@ -14,4 +14,12 @@
 
 span.text-red {
   color: #f9524e;
+}
+
+span.green {
+  background-color: #5eb95e;
+}
+
+span.red {
+  background-color: #dd514c;
 }

@@ -3,14 +3,14 @@ Handlebars.registerHelper('dateFormat', function(context, block) {
   if (window.moment) {
     var f = block.hash.format || "MMM DD, YYYY hh:mm:ss A";
     return moment(context).format(f); //had to remove Date(context)
-  }else{
+  } else {
     return context;   //  moment plugin not available. return data as is.
   };
 });
 Handlebars.registerHelper('dateSince', function(context, block) {  
   if (window.moment) {    
     return moment(context).fromNow();
-  }else{
+  } else {
     return context;   //  moment plugin not available. return data as is.
   };
 });
@@ -51,10 +51,6 @@ Handlebars.registerHelper("lateFeeFlagStatus", function(invoiceDate) {
   var actualDateReturned = moment(this.actualDateReturned);  
   var daysLapsed = actualDateReturned.diff(invoiceDate, 'days');  
   
-  //console.log(daysLapsed);
-  //console.log(this.days);
-  //console.log(this.lateFeesAssessed);
-  
   if (daysLapsed > this.days && !(this.lateFeeAssessed)) {
     return "<br/><span class='label label-important'>late fee pending</span>";
   }
@@ -81,8 +77,6 @@ Handlebars.registerHelper("grandTotal", function(options){
   //console.log(this);
   var discFees =  _(this.discs).reduce(function( memo, val, key ){
     return (memo || 0) + (val.price || 0) + (val.lateFeeAssessed || 0);
-    //console.log(val.price);
-    //console.log(val.lateFeeAssess);
   }, 0);
   
   var purchaseFees = _(this.purchases).reduce(function( memo, val, key ) {
@@ -90,7 +84,7 @@ Handlebars.registerHelper("grandTotal", function(options){
     return parseFloat(fee.toPrecision(12));  //stupid javascript math
   }, 0);
   
-  //again, to protect against stupid javascript math
+  //again, to protect against stupid javascript math (try .1 + .2)
   return parseFloat((discFees + purchaseFees).toPrecision(12)).toFixed(2);  
 });
 

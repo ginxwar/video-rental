@@ -23,7 +23,7 @@
         {{/unless}}
         <a href="#">{{lastname}}, {{firstname}}</a>
       </li>      
-    {{/each}}    
+    {{/each}}  
   </script>
   <script id="customerDetailTemplate" type="text/x-handlebars-template">
     <div class="well well-small">
@@ -64,7 +64,10 @@
         SalesPerson: <strong>{{salesperson}}</strong><br/>            
       </span>
       
-      {{dateFormat invoicedate}} <br/>          
+      <div>
+        <h4>Invoice #{{math @index 1}} </h4>
+        <p>Date: {{dateFormat invoicedate}} </p>          
+      </div>
       
       <table class="table">
         <thead>
@@ -196,8 +199,14 @@
             <a href="#" id="discSortByName">Name</a> |
             <a href="#" id="discSortByAvailability">Availability</a> |
             <a href="#" id="discSortByUnavailability">Unavailability</a> |
-            <a href="#" id="discSortByQuantity">Quantity</a>
-        
+            <a href="#" id="discSortByQuantity">Quantity</a>        
+          </p>
+          
+          <p>
+            Legend:            
+            <span class="label green">1</span> on hand
+            <span class="label red">1</span> checked out
+            <span class="label">1</span> total stock
           </p>
           <div id="discs"></div>
         </div>

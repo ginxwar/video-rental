@@ -2,6 +2,7 @@ var JSONData = {
   customers: null,
   discs: null,
   
+  //used in inventory screen
   uniqueDiscs: null
 }
 
@@ -14,7 +15,6 @@ var JSONService = {
       JSONData.customers = _(data).sortBy(function(customer){
         return customer.lastname;
       });
-      
     });
   },  //getCustomers
   
@@ -102,7 +102,7 @@ $(function() {
   $.when(  JSONService.getCustomers(),
            JSONService.getDiscs()
         
-  ).done(function(htmlresponse, b, c) {    
+  ).done(function() {    
     
     console.log("");
        
@@ -111,14 +111,7 @@ $(function() {
     
     //load discs
     $("#discs").handlebars($("#discsTemplate"), {discs: JSONData.uniqueDiscs});
-    
-    
-    //console.log(findCustomer(1));    
-    //console.log(findDisc(4));
-  
-    
-        
-    
+     
   });  //when, done
   
 
@@ -141,12 +134,12 @@ $(function() {
   
   
   // listeners  
-  $("#customers").on("click", "li", function(event){    
+  $("#customers").on("click", "li a", function(event){    
     $this = $(this);
-    $this.siblings().removeClass("label label-warning");
-    $this.addClass("label label-warning");    
+    $this.parent().siblings().find("a").removeClass("active")
+    $this.addClass("active");
     
-    var customerID = parseInt($this.attr("id").replace(/\D/g,''));    //this was a string!!  !@#$           
+    var customerID = parseInt($this.parent().attr("id").replace(/\D/g,''));    //this was a string!!  !@#$           
     
     $("#customerDetails").handlebars($("#customerDetailTemplate"), findCustomer(customerID));
   });
