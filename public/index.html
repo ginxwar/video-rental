@@ -52,7 +52,7 @@
           <i class="icon-plane"></i> still out         
         </div>
       {{else}}
-        <p>There is no history so this must be a new customer.  Lure them with popcorn.</p>
+        <p>There is no history so this must be a new customer.  Lure them with sweet delicious popcorn.</p>
       {{/if}}
       
       {{#each invoices}}
@@ -77,15 +77,17 @@
             <th>Price</th>                
           </tr>
         </thead>
+        
         <tbody>
           {{#each discs}}
             <tr class="alert alert-success">
               <td>
                 <span class="label">{{days}} days</span>
-                {{{checkoutStatus}}}
+                 
+                <i class="{{checkoutStatusIcon}}"></i>
                 {{discID.title}}
               </td>
-              <td>{{{discRentalStatus ../invoicedate}}}</td>
+              <td>{{{discRentalStatus ../invoicedate}}} {{{lateFeeFlagStatus ../invoicedate}}}</td>
               <td>${{price}}</td>                
             </tr>
             {{#if lateFeeAssessed}}
@@ -94,7 +96,7 @@
                 <td>late fee:</td>
                 <td>${{lateFeeAssessed}}</td>
               </tr>
-            {{/if}}
+            {{/if}}            
           {{/each}}
           
           {{#each purchases}}
@@ -140,10 +142,8 @@
         <strong>Grand Invoice Total: ${{grandTotal}}</strong>
       </p>
       
-      
-      <p class="alert alert-error text-right">
-        <strong>Late Fees Total: </strong>
-      </p>
+      {{#ifLateFeesTotal}}
+      {{/ifLateFeesTotal}}
                 
       
     </div>
@@ -199,22 +199,6 @@
         
 
         
-
-        <!--
-				<form>				  
-				    <label>Label name</label>
-				    <input type="text" placeholder="First Name">
-				    <input type="text" placeholder="Last Name"><br/>
-				    <input type="text" placeholder="Address Line 1"><br/>
-				    <input type="text" placeholder="Address Line 2"><br/>
-				    <input type="text" placeholder="City">
-				    <input type="text" placeholder="State">
-				    <input type="text" placeholder="Zip"><br/>
-				    <input type="text" placeholder="Phone"><br/>				    
-				    <button type="submit" class="btn">Add new Customer</button>				  
-				</form>
-        -->
-
         <div class="span3">
           <!--
           <button id="ascending">asc</button>

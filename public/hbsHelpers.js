@@ -37,14 +37,28 @@ Handlebars.registerHelper("availabilityRatio", function(val1, val2) {
     return Math.round((val1 / total) * 100)
   }  
 });
-Handlebars.registerHelper("checkoutStatus", function() {
+Handlebars.registerHelper("checkoutStatusIcon", function(options) {
   if (this.actualDateReturned) {
-    var text = "<i class='icon-repeat'></i>";
+    var text = "icon-repeat";
   } else {
-    var text = "<i class='icon-plane'></i>";
+    var text = "icon-plane";
   }          
   return text;
 })
+
+Handlebars.registerHelper("lateFeeFlagStatus", function(invoiceDate) {
+  invoiceDate = moment(invoiceDate);
+  var actualDateReturned = moment(this.actualDateReturned);  
+  var daysLapsed = actualDateReturned.diff(invoiceDate, 'days');  
+  
+  //console.log(daysLapsed);
+  //console.log(this.days);
+  //console.log(this.lateFeesAssessed);
+  
+  if (daysLapsed > this.days && !(this.lateFeeAssessed)) {
+    return "<br/><span class='label label-important'>late fee pending</span>";
+  }
+});
 
 Handlebars.registerHelper("discRentalStatus", function(invoiceDate) {
   //console.log(this);
@@ -52,11 +66,11 @@ Handlebars.registerHelper("discRentalStatus", function(invoiceDate) {
   invoiceDate = moment(invoiceDate);
   var actualDateReturned = moment(this.actualDateReturned);  
   var daysLapsed = actualDateReturned.diff(invoiceDate, 'days');  
-  if (daysLapsed === 2) {
+  if (daysLapsed === this.days) {
     var text = "<span class='label label-info'>due today</span>"
-  } else if (daysLapsed > 2) {
+  } else if (daysLapsed > this.days) {
     var text = "<span class='label label-important'>overdue " + daysLapsed + "d</span>";
-  } else if (daysLapsed >= 0 && daysLapsed <= 2) {
+  } else if (daysLapsed >= 0 && daysLapsed <= this.days) {
     var text = "";
   } else {  //strange negative value? (possible?)
     var text = "<span class='label label-important'>Fatal Error</span>";
@@ -80,6 +94,21 @@ Handlebars.registerHelper("grandTotal", function(options){
   return parseFloat((discFees + purchaseFees).toPrecision(12)).toFixed(2);  
 });
 
+//hbs block helpers
+Handlebars.registerHelper("ifLateFeesTotal", function(options){
+  var lateFees = _(this.discs).reduce(function( memo, val, key ) {
+    return (memo || 0) + (val.lateFeeAssessed || 0);
+  }, 0);
+  
+  if (lateFees > 0) {
+    var text = '<p class="alert alert-error text-right">'
+    text += '<strong>Late Fees Total:'
+    text += ' $' + lateFees
+    text += '</strong></p>'
+    return text;
+  } 
+  
+});
 
 //partials
-Handlebars.registerPartial('invoice', $("#invoiceTemplate").html())
+Handlebars.registerPartial('invoice', $("#invoiceTemplate").html());
