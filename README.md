@@ -27,14 +27,13 @@ Functional Requirements
 * track customers:
   * current and new customers
 
-
 * track inventory:
   * availability
   * unavailability
   * total stock
 
-* track transactions:
-  * rental date length
-  * price per rental
-  * rental status
+* track invoices/transactions:
+  * rental date length (terms: 5-day, 2-day)
+  * price per rental 
+  * rental status (overdue, returned, out...)
   * non-rental purchases
