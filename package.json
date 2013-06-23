@@ -8,10 +8,8 @@
   },
   "dependencies" : {
     "express"  :  "*",    
-    "mongoose":  "*",
     "underscore": "*",
     "async": "*",
-    "jade": "*",        
     "mongodb": "*"
   },
   "repository": "",
