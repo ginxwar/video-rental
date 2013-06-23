@@ -65,12 +65,19 @@ Handlebars.registerHelper("discRentalStatus", function(invoiceDate) {
 });
 Handlebars.registerHelper("grandTotal", function(options){
   //console.log(this);
-  var allFees =  _(this.discs).reduce(function( memo, val, key ){
+  var discFees =  _(this.discs).reduce(function( memo, val, key ){
     return (memo || 0) + (val.price || 0) + (val.lateFeeAssessed || 0);
     //console.log(val.price);
     //console.log(val.lateFeeAssess);
   }, 0);
-  return allFees;  
+  
+  var purchaseFees = _(this.purchases).reduce(function( memo, val, key ) {
+    var fee = (memo || 0) + (val.quantity * val.unitPrice)
+    return parseFloat(fee.toPrecision(12));  //stupid javascript math
+  }, 0);
+  
+  //again, to protect against stupid javascript math
+  return parseFloat((discFees + purchaseFees).toPrecision(12)).toFixed(2);  
 });
 
 

@@ -27,7 +27,22 @@
                         "discID": 8,
                         "days": 2,
                         "price": 4.49,
-                        "actualDateReturned": "2009-10-18T22:38:54 -07:00"
+                        "actualDateReturned": "2009-10-18T22:38:54 -07:00",
+                        "lateFeeAssessed": 6.57
+                    }
+                ],
+                "purchases": [
+                    {
+                        "productID": 1,
+                        "product": "ACME Popcorn",
+                        "quantity": 2,
+                        "unitPrice": 2.49
+                    },
+                    {
+                        "productID": 1,
+                        "product": "ACME Cola",
+                        "quantity": 3,
+                        "unitPrice": 1.29
                     }
                 ]
             },
@@ -52,8 +67,8 @@
     },
     {
         "id": 2,
-        "firstname": "Harry",
-        "lastname": "Potter",
+        "firstname": "George",
+        "lastname": "Doorhandle",
         "address1": "24 Apteros Road",
         "address2": "Apt 9",
         "city": "Santa Barbara",
@@ -93,20 +108,24 @@
         "zip": "90000",
         "phone": "805-111-2222",
         "dateCreated": "2013-06-05T13:15:00 -07:00",
-      "invoices": [{
-        "invoicedate": "2013-06-06T12:27:13 -07:00",
-        "salesperson": "Jackie",
-        "discs": [{
-          "discID": 32,
-          "days": 2,
-          "price": 1.99
-        },{
-          "discID": 40,
-          "days": 2,
-          "price": 1.99
-        }]
-      
-      }]
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Jackie",
+                "discs": [
+                    {
+                        "discID": 32,
+                        "days": 2,
+                        "price": 1.99
+                    },
+                    {
+                        "discID": 40,
+                        "days": 2,
+                        "price": 1.99
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": 4,
@@ -117,8 +136,30 @@
         "state": "CA",
         "zip": "90000",
         "phone": "820-568-35729",
-        "dateCreated": "2008-08-24T09:29:12 +07:00",
-        "invoices": []
+        "dateCreated": "2013-02-24T09:29:12 +07:00",
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Mike",
+                "discs": [
+                    {
+                        "discID": 33,
+                        "days": 2,
+                        "price": 1.99
+                    },
+                    {
+                        "discID": 20,
+                        "days": 2,
+                        "price": 1.99
+                    },
+                    {
+                        "discID": 10,
+                        "days": 2,
+                        "price": 1.99
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": 5,

@@ -62,26 +62,24 @@
   </script>
   
   <script id="invoiceTemplate" type="text/x-handlebars-template">
-     <div class="alert alert-info">          
+     <div class="alert alert-block">          
       <span class="pull-right">
         SalesPerson: <strong>{{salesperson}}</strong><br/>            
       </span>
       
       {{dateFormat invoicedate}} <br/>          
       
-      <table class="table table-striped">
+      <table class="table">
         <thead>
-          <tr>
-            <th>#</th>
-            <th>Movie</th>
-            <th>Status</th>
+          <tr class="alert alert-success">
+            <th>Movie/Purchase</th>
+            <th>Status/Quantity</th>
             <th>Price</th>                
           </tr>
         </thead>
         <tbody>
           {{#each discs}}
-            <tr class="warning">
-              <td>{{math @index 1}}</td>
+            <tr class="alert alert-success">
               <td>
                 <span class="label">{{days}} days</span>
                 {{{checkoutStatus}}}
@@ -93,22 +91,60 @@
             {{#if lateFeeAssessed}}
               <tr>
                 <td></td>
-                <td></td>
                 <td>late fee:</td>
                 <td>${{lateFeeAssessed}}</td>
               </tr>
             {{/if}}
-          {{/each}}              
-        </tbody>
-        <tfoot>
-          <tr>
-            <td></td>
-            <td></td>
-            <td class="pull-right">Total</td>
-            <td class="peach"><strong>${{grandTotal}}</strong></td>
-          </tr>
-        </tfoot>
-      </table>          
+          {{/each}}
+          
+          {{#each purchases}}
+            <tr class="alert alert-success">
+              <td>{{product}}</td>
+              <td>{{quantity}} X ${{unitPrice}}</td>
+              <td>${{math quantity "*" unitPrice}}</td>
+            </tr>
+          {{/each}}
+          
+        </tbody>  
+      </table>    
+      
+      <!--
+      {{#if purchases}}
+        <table class="table">
+          <thead>
+            <tr class="alert alert-success">
+              <th>#</th>
+              <th>Purchase</th>
+              <th>Qty/Price</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each purchases}}
+              <tr class="alert alert-success">
+                <td>{{@index}}</td>
+                <td>{{product}}</td>
+                <td>{{quantity}} X ${{unitPrice}}</td>
+                <td>${{math quantity "*" unitPrice}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+          -->
+        
+       
+      
+      
+      <p class="alert alert-info text-right">
+        <strong>Grand Invoice Total: ${{grandTotal}}</strong>
+      </p>
+      
+      
+      <p class="alert alert-error text-right">
+        <strong>Late Fees Total: </strong>
+      </p>
+                
       
     </div>
   </script>

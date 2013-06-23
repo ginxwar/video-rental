@@ -69,7 +69,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+        "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 11,
@@ -149,7 +150,8 @@
         "genre": [
             "drama",
             "comedy"
-        ]
+        ],
+        "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 21,
@@ -254,7 +256,8 @@
         "genre": [
             "biography",
             "history"
-        ]
+        ],
+        "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 34,
