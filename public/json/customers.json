@@ -135,7 +135,7 @@
         "city": "Baltimore",
         "state": "CA",
         "zip": "90000",
-        "phone": "820-568-35729",
+        "phone": "820-568-3579",
         "dateCreated": "2013-02-24T09:29:12 +07:00",
         "invoices": [
             {
@@ -156,6 +156,11 @@
                         "discID": 10,
                         "days": 2,
                         "price": 1.99
+                    },
+                    {
+                        "discID": 51,
+                        "days": 2,
+                        "price": 1.99
                     }
                 ]
             }
@@ -171,7 +176,29 @@
         "zip": "90000",
         "phone": "829-587-32604",
         "dateCreated": "2011-01-27T10:03:50 +08:00",
-        "invoices": []
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Jackie",
+                "discs": [
+                    {
+                        "discID": 1,
+                        "days": 2,
+                        "price": 1.99
+                    },
+                    {
+                        "discID": 2,
+                        "days": 2,
+                        "price": 1.99
+                    },
+                  {
+                        "discID": 50,
+                        "days": 2,
+                        "price": 1.99
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": 6,
@@ -183,7 +210,16 @@
         "zip": "90000",
         "phone": "844-571-22646",
         "dateCreated": "2004-12-01T07:40:46 +08:00",
-        "invoices": []
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Mike",
+                "discs": [
+                    {
+                        "discID": 52,
+                        "days": 2,
+                        "price": 1.99
+                    }]}]
     },
     {
         "id": 7,
@@ -195,7 +231,16 @@
         "zip": "90000",
         "phone": "860-584-33363",
         "dateCreated": "2006-01-23T05:23:05 +08:00",
-        "invoices": []
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Mike",
+                "discs": [
+                    {
+                        "discID": 53,
+                        "days": 2,
+                        "price": 1.99
+                    }]}]
     },
     {
         "id": 8,
@@ -207,7 +252,16 @@
         "zip": "90000",
         "phone": "818-565-25102",
         "dateCreated": "1991-10-02T16:10:42 +07:00",
-        "invoices": []
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Mike",
+                "discs": [
+                    {
+                        "discID": 54,
+                        "days": 2,
+                        "price": 1.99
+                    }]}]
     },
     {
         "id": 9,
@@ -219,7 +273,16 @@
         "zip": "90000",
         "phone": "866-417-27745",
         "dateCreated": "1989-02-24T13:29:11 +08:00",
-        "invoices": []
+        "invoices": [
+            {
+                "invoicedate": "2013-06-06T12:27:13 -07:00",
+                "salesperson": "Mike",
+                "discs": [
+                    {
+                        "discID": 55,
+                        "days": 2,
+                        "price": 1.99
+                    }]}]
     },
     {
         "id": 10,

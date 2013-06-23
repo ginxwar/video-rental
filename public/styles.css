@@ -11,3 +11,7 @@
 .table td.peach {
   background-color: #fbdc88;
 }
+
+span.text-red {
+  color: #f9524e;
+}

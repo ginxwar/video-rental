@@ -59,8 +59,6 @@ var JSONService = {
 
 
 
-
-
 var findDisc = function(discID) {
   var disc = _(JSONData.discs).find(function(disc){
     return disc.id === discID;
@@ -68,16 +66,11 @@ var findDisc = function(discID) {
   return disc;
 };
 
-
-
 var findCustomer = function(customerID) {
-  
   var customers = jQuery.extend(true, {}, JSONData.customers);
-  
   var customer = _(customers).find(function(customer){
     return customer.id === customerID;
   });      
-  
   var invoices = _(customer.invoices)  
     .map(function(invoice){      
       var discObj = _(invoice.discs).map(function(disc){
@@ -86,8 +79,7 @@ var findCustomer = function(customerID) {
       });
       invoice["discs"] = discObj;      
       return invoice;
-    });  
-  
+    });
   var lifetimeRentals = _(customer.invoices)  
     .reduce(function( memo, val, key ){    
       discs = val.discs;
@@ -96,6 +88,7 @@ var findCustomer = function(customerID) {
   
   customer.invoices = invoices;  
   customer["lifetimeRentals"] = lifetimeRentals;
+  
   return customer;
 }
 
@@ -147,8 +140,7 @@ $(function() {
   */
   
   
-  // listeners
-  
+  // listeners  
   $("#customers").on("click", "li", function(event){    
     $this = $(this);
     $this.siblings().removeClass("label label-warning");
@@ -161,7 +153,6 @@ $(function() {
   
   
   //// sorting: discs
-  
   $("#discSortByName").on("click", function(event){    
     var sorted = _(JSONData.uniqueDiscs).sortBy(function(disc){
       return disc.title;

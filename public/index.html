@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Video Rental</title>
 
-
   <!-- vendors -->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
@@ -14,8 +13,7 @@
   
   <!-- jquery plugin-ins -->
   <script src="handlebars-jquery.js"></script>
-  
-  
+    
   <!-- hbs templates -->
   <script id="customersTemplate" type="text/x-handlebars-template">    
     {{#each customers}}
@@ -27,13 +25,13 @@
       </li>      
     {{/each}}    
   </script>
-  
   <script id="customerDetailTemplate" type="text/x-handlebars-template">
     <div class="well well-small">
       <span class="pull-right">      
         <div>lifetime videos rented <span class="label">{{lifetimeRentals}}</span></div>
         <div>customer since <abbr title="{{dateFormat dateCreated}}">{{dateSince dateCreated}}</abbr></div>
       </span>    
+      
       <address>
         <strong>{{lastname}}, {{firstname}}</strong><br/>
         {{address1}}<br/>
@@ -60,7 +58,6 @@
       {{/each}}
     </div>
   </script>
-  
   <script id="invoiceTemplate" type="text/x-handlebars-template">
      <div class="alert alert-block">          
       <span class="pull-right">
@@ -83,20 +80,22 @@
             <tr class="alert alert-success">
               <td>
                 <span class="label">{{days}} days</span>
-                 
                 <i class="{{checkoutStatusIcon}}"></i>
                 {{discID.title}}
               </td>
-              <td>{{{discRentalStatus ../invoicedate}}} {{{lateFeeFlagStatus ../invoicedate}}}</td>
-              <td>${{price}}</td>                
+              <td>
+                {{{discRentalStatus ../invoicedate}}} {{{lateFeeFlagStatus ../invoicedate}}}
+                {{#if lateFeeAssessed}}
+                  <br/> overdue charge
+                {{/if}}
+              </td>
+              <td>
+                ${{price}}
+                {{#if lateFeeAssessed}}
+                  <br/> <strong><span class="text-red">${{lateFeeAssessed}}</span></strong>
+                {{/if}}
+              </td>                
             </tr>
-            {{#if lateFeeAssessed}}
-              <tr>
-                <td></td>
-                <td>late fee:</td>
-                <td>${{lateFeeAssessed}}</td>
-              </tr>
-            {{/if}}            
           {{/each}}
           
           {{#each purchases}}
@@ -110,36 +109,12 @@
         </tbody>  
       </table>    
       
-      <!--
-      {{#if purchases}}
-        <table class="table">
-          <thead>
-            <tr class="alert alert-success">
-              <th>#</th>
-              <th>Purchase</th>
-              <th>Qty/Price</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each purchases}}
-              <tr class="alert alert-success">
-                <td>{{@index}}</td>
-                <td>{{product}}</td>
-                <td>{{quantity}} X ${{unitPrice}}</td>
-                <td>${{math quantity "*" unitPrice}}</td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      {{/if}}
-          -->
         
        
       
       
       <p class="alert alert-info text-right">
-        <strong>Grand Invoice Total: ${{grandTotal}}</strong>
+        <strong>Original Invoice Total: ${{grandTotal}}</strong>
       </p>
       
       {{#ifLateFeesTotal}}
@@ -148,7 +123,6 @@
       
     </div>
   </script>
-  
   <script id="discsTemplate" type="text/x-handlebars-template">
     <ul class="unstyled">
       {{#each discs}}
@@ -169,16 +143,13 @@
   
   <!-- hbs helpers -->
   <script src="hbsHelpers.js"></script>
-      
 
   <!-- styles -->
   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">  
-  
 
   <!-- APP: this is loaded last -->
 	<script src="app.js"></script>
-  
 </head>
 <body>
 

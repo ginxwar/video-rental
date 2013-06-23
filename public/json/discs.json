@@ -4,14 +4,16 @@
         "title": "Iron Man",
         "genre": [
             "action"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 2,
         "title": "Iron Man",
         "genre": [
             "action"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 3,
@@ -394,7 +396,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 51,
@@ -402,7 +405,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+        "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 52,
@@ -410,7 +414,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 53,
@@ -418,7 +423,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 54,
@@ -426,7 +432,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 55,
@@ -434,7 +441,8 @@
         "genre": [
             "drama",
             "thriller"
-        ]
+        ],
+      "expectedReturn": "2013-06-08T12:27:13 -07:00"
     },
     {
         "id": 56,

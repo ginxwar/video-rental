@@ -69,7 +69,7 @@ Handlebars.registerHelper("discRentalStatus", function(invoiceDate) {
   if (daysLapsed === this.days) {
     var text = "<span class='label label-info'>due today</span>"
   } else if (daysLapsed > this.days) {
-    var text = "<span class='label label-important'>overdue " + daysLapsed + "d</span>";
+    var text = "<span class='label'>overdue " + daysLapsed + "d</span>";
   } else if (daysLapsed >= 0 && daysLapsed <= this.days) {
     var text = "";
   } else {  //strange negative value? (possible?)
@@ -102,7 +102,7 @@ Handlebars.registerHelper("ifLateFeesTotal", function(options){
   
   if (lateFees > 0) {
     var text = '<p class="alert alert-error text-right">'
-    text += '<strong>Late Fees Total:'
+    text += '<strong>Overdue Fees Total:'
     text += ' $' + lateFees
     text += '</strong></p>'
     return text;
